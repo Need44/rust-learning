@@ -47,6 +47,7 @@ fn main() {
 
     operators();
     conditions();
+    loops();
 }
 
 fn operators(){
@@ -141,4 +142,58 @@ fn conditions(){
         _ => "error",
     };
     println!("{}", return_value);
+}
+
+fn loops() {
+
+    let mut i = 0;
+    loop{
+        if i == 3 {
+            break;
+        }
+        print!("{} ", i);
+        i += 1;
+    };
+
+    i = 0;
+    print!("\n");
+    let return_value = loop{
+        if i == 3 {
+            break i;
+        }
+        print!("{} ", i);
+        i += 1;
+    };
+
+    i = 0;
+    print!("\n");
+    while i < 5 {
+        print!("{} ", i);
+        i += 1;
+    };
+
+    i = 0;
+    print!("\n");
+    while i < 5 {
+        if i == 2 {
+            i += 1;
+            continue;
+        };
+        print!("{} ", i);
+        i += 1;
+    };
+    print!("\n");
+
+    // non inclusive, goes only to 5
+    for j in 1..6 {
+        print!("{} ", j);
+    };
+    print!("\n");
+
+    //include 6
+    for j in 1..=6 {
+        print!("{} ", j);
+    };
+    print!("\n");
+
 }
