@@ -20,6 +20,10 @@ fn main() {
     print!("{} \n", func_with_params(user));
 
     working_with_strings();
+
+    ownership_in_rust();
+
+    references_and_ownership();
 }
 
 fn introduction_and_variables(){
@@ -236,4 +240,32 @@ fn working_with_strings(){
     txt2.push('!'); // adds one char
 
     println!("{}", format!("{}, I love it!\n{}\n{}", txt, txt2, txt.len()));
+}
+
+fn ownership_in_rust(){
+    let a = String::from("IDK HI");
+    let b = a;
+    //println!("{}", a); would throw error, a no longer owns the value
+    println!("{}", b);
+
+    //But simple types like numbers, characters and booleans are copied, not moved
+    let c = 10;
+    let d = c;
+    println!("{} {}", c, d);
+
+    //String can be cloned
+    let e = String::from("RANDOM");
+    let f = e.clone();
+    println!("{} {}", e, f);
+}
+
+fn references_and_ownership(){
+    let a = String::from("HELLO");
+    let b = &a;
+    println!("{} {}", a, b);
+    
+    let mut c = String::from("HELLO");
+    let d = &mut c;
+    d.push_str(" BYE");
+    println!("{}", c);
 }
