@@ -2,6 +2,16 @@
 */ 
 
 fn main() {
+    introduction_and_variables();
+
+    operators();
+
+    conditions();
+
+    loops();
+}
+
+fn introduction_and_variables(){
     println!("Hello, world!");
     println!("Im running");
 
@@ -44,10 +54,6 @@ fn main() {
     //constants named in UPPER_CASE
     const YEAR: u32 = 2007;
     println!("{}", YEAR);
-
-    operators();
-    conditions();
-    loops();
 }
 
 fn operators(){
@@ -111,7 +117,7 @@ fn conditions(){
     }
 
     // both  if else values must be the same type
-    let mut b = if a == 0 { 20 } else { 10 };
+    let b = if a == 0 { 20 } else { 10 };
 
     match b {
         1 => println!("1"),
@@ -157,7 +163,7 @@ fn loops() {
 
     i = 0;
     print!("\n");
-    let return_value = loop{
+    let _return_value = loop{
         if i == 3 {
             break i;
         }
