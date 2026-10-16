@@ -9,6 +9,17 @@ fn main() {
     conditions();
 
     loops();
+
+    let mut user: &str = "john";
+    print!("{} ", func_with_params(user));
+
+    user = "eve";
+    print!("{} ", func_with_params(user));
+
+    user = "henry";
+    print!("{} \n", func_with_params(user));
+
+    working_with_strings();
 }
 
 fn introduction_and_variables(){
@@ -202,4 +213,27 @@ fn loops() {
     };
     print!("\n");
 
+}
+
+fn func_with_params(name: &str) -> &str {
+     return match name {
+        "john" => "Welcome John",
+        "eve" => "Welcome Eve",
+        _ => "unknown user"
+    };
+}
+
+fn working_with_strings(){
+    /* 
+    &str - string slices, unmodifiable
+    String - changeable 
+    */
+    let a: &str  = "Red Wine";
+    let mut txt = a.to_string();
+    let mut txt2 = String::from(a);
+
+    txt.push_str(" and cheese"); //adds string
+    txt2.push('!'); // adds one char
+
+    println!("{}", format!("{}, I love it!\n{}\n{}", txt, txt2, txt.len()));
 }
