@@ -1,5 +1,6 @@
 /*This follows the tutorial course on w3schools website
 */ 
+mod data_structs;
 
 fn main() {
     introduction_and_variables();
@@ -24,6 +25,9 @@ fn main() {
     ownership_in_rust();
 
     references_and_ownership();
+
+    data_structs::array_and_vector();
+    data_structs::tuples_and_hashmaps();
 }
 
 fn introduction_and_variables(){
