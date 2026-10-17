@@ -28,6 +28,8 @@ fn main() {
 
     data_structs::array_and_vector();
     data_structs::tuples_and_hashmaps();
+    data_structs::custom_structs();
+    data_structs::trying_enums();
 }
 
 fn introduction_and_variables(){

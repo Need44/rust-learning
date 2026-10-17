@@ -59,3 +59,38 @@ pub fn tuples_and_hashmaps(){
     }
 
 }
+
+struct Car {
+    brand: String,
+    model: String,
+    year: u32,
+}
+
+pub fn custom_structs(){
+    let car = Car {
+        brand: String::from("Skoda"),
+        model: String::from("Superb"),
+        year: 2020,
+    };
+    println!("{}", car.model);
+}
+
+enum Direction {
+    Up,
+    Down,
+    Left,
+    Right,
+}
+
+pub fn trying_enums(){
+    let dir = Direction::Left;
+
+    let mut result = match dir {
+        Direction::Up => "UP",
+        Direction::Down => "DOWN",
+        Direction::Left => "LEFT",
+        Direction::Right => "RIGHT",
+    };
+    
+    println!("{}", result);
+}
