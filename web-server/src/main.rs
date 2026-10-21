@@ -1,5 +1,6 @@
 // This is web server project from https://doc.rust-lang.org/book/ch21-00-final-project-a-web-server.html
 use std::{
+    fs,
     net::{TcpListener, TcpStream},
     io::{BufReader, prelude::*}
 };
@@ -24,6 +25,16 @@ fn handle_conn(mut stream: TcpStream) {
         .take_while(|line| !line.is_empty())
         .collect();
     
-    println!("Request: {http_request:#?}");
+    //println!("Request: {http_request:#?}");
+    let status_line = "HTTP/1.1 200 OK";
+    let contents = fs::read_to_string("frontend/index.html").unwrap();
+    let length = contents.len();
+    
+    let response = format!(
+        "{status_line}\r\nContent-Length: {length}\r\n\r\n{contents}"
+    );
+
+    //stream.write_all(response.as_bytes()).unwrap();
+    stream.write_all(response.as_bytes()).unwrap();
 
 }
