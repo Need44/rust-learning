@@ -2,18 +2,23 @@
 use std::{
     fs,
     collections::HashMap,
+    thread,
     net::{TcpListener, TcpStream},
     io::{BufReader, prelude::*}
 };
+mod lib;
 
 fn main() {
     let listener = TcpListener::bind("127.0.0.1:8080").unwrap();
 
     for stream in listener.incoming() {
         let stream = stream.unwrap();
+        let pool = lib::ThreadPool::new(4);
 
         //println!("Connection established!");
-        handle_conn(stream);
+        pool.execute(|| {
+            handle_conn(stream);
+        });
     }
 }
 
