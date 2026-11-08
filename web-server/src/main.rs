@@ -11,7 +11,7 @@ mod lib;
 fn main() {
     let listener = TcpListener::bind("127.0.0.1:8080").unwrap();
 
-    for stream in listener.incoming() {
+    for stream in listener.incoming().take(2) {
         let stream = stream.unwrap();
         let pool = lib::ThreadPool::new(4);
 
