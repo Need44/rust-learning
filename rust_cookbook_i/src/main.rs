@@ -3,6 +3,10 @@
 // That I dont know certain concepts and I have gaps in my knowledge base
 // So I decided that I will go through the whole cookbook in the hopes of mastering the basics of Rust
 
+mod guessing_game;
+
 fn main() {
-    println!("Hello, world!");
+    //println!("Hello, world!");
+
+    guessing_game::play()
 }
